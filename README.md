@@ -1,6 +1,6 @@
-# DevSpacesExample
+# OpenShift/Eclipse Che DevSpaces
 
-- [DevSpacesExample](#devspacesexample)
+- [OpenShift/Eclipse Che DevSpaces](#openshifteclipse-che-devspaces)
   - [Devfile registry](#devfile-registry)
   - [Access](#access)
     - [Git](#git)

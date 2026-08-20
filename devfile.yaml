@@ -1,12 +1,12 @@
 ---
 schemaVersion: 2.2.0
 metadata:
-  name: udi8
+  name: udi10
   displayName: Universal Devspace
-  description: Universal DevSpace utilizing quay.io/devfile/universal-developer-image:ubi8-latest
+  description: Universal DevSpace utilizing quay.io/devfile/universal-developer-image:ubi10-latest
   icon: https://landscape.cncf.io/logos/devfile.svg
   tags:
-    - ubi8
+    - ubi10
   projectType: universal
   language: ObjectScript
   version: 1.0.0
@@ -54,12 +54,16 @@ components:
           protocol: tcp
           targetPort: 2475
           # Example to expose some webserver via Route/Ingress:
-        - name: 'web'
+        - name: 'web-8080'
           targetPort: 8080
           exposure: public
           protocol: http
+        - name: 'web-8081'
+          targetPort: 8081
+          exposure: public
+          protocol: http
       #image: quay.io/devspaces/udi-rhel8:latest
-      image: quay.io/devfile/universal-developer-image:ubi8-latest
+      image: quay.io/devfile/universal-developer-image:ubi10-latest
 
 commands:
     # For: customShellScriptAsCommand.yaml
@@ -74,6 +78,6 @@ events:
 projects:
   - git:
       remotes:
-        origin: https://github.com/musbell2/DevSpacesExample.git
+        origin: https://github.com/moosestack/openshift-devspaces.git
     ## name must be lowercase
-    name: devspacesexample
+    name: openshift-devspaces
