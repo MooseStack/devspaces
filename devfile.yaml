@@ -38,10 +38,6 @@ components:
           # disables ssl verification for git until certs are in bundle
         - name: GIT_SSL_NO_VERIFY
           value: 'true'
-          
-          #Default VSCode to /projects
-        - name: VSCODE_DEFAULT_WORKSPACE
-          value: "/projects"
 
           # certificate locations. Used by Node.js, Java, Git cli, etc.
         # - name: NODE_EXTRA_CA_CERTS
@@ -79,9 +75,10 @@ events:
   postStart:
     - add-mounted-shell-to-bashrc
 
-projects:
-  - git:
-      remotes:
-        origin: https://github.com/moosestack/devspaces.git
-    ## name must be lowercase
-    name: devspaces
+# auto git clone of a project into /projects folder and auto opens it in selected IDE
+# projects:
+#   - git:
+#       remotes:
+#         origin: https://github.com/moosestack/devspaces.git
+#     ## name must be lowercase
+#     name: devspaces
