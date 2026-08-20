@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: workspace-pvc
+  labels:
+    controller.devfile.io/mount-to-devworkspace: 'true'
+  annotations:
+    controller.devfile.io/mount-path: /projects/workspace-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi 
+  volumeMode: Filesystem

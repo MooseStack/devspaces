@@ -12,19 +12,20 @@ metadata:
   version: 1.0.0
 components:
 
-  # 1. Define the Persistent Volume Claim (optional)
-  - name: workspace-pvc
-    volume:
-      size: 5Gi
+  # 1. Define the Persistent Volume Claim (optional). This will auto delete when workspace deletes.
+       # if you want a pvc that remains affer workspace deletion, create a separate PVC with workspace related labels. See: ./pvc.yaml
+  # - name: workspace-pvc
+  #   volume:
+  #     size: 5Gi
 
   # 2. Define the container component
   - name: tools
     container:
-      # Mount the PVC into the container
-      volumeMounts:
-        - name: workspace-pvc
-          path: /projects/workspace-pvc
-      sourceMapping: /projects/workspace-pvc
+      # Mount the PVC into the container if defining a pvc in above component
+      # volumeMounts:
+      #   - name: workspace-pvc
+      #     path: /projects/workspace-pvc
+      # sourceMapping: /projects/workspace-pvc
 
       # CPU/Memory
       cpuLimit: "4"
