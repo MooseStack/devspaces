@@ -13,10 +13,10 @@ metadata:
 components:
   - name: tools
     container:
-      cpuLimit: 4
-      cpuRequest: 800m
-      memoryLimit: 4G
-      memoryRequest: 1028Mi
+      cpuLimit: "4"
+      cpuRequest: "800m"
+      memoryLimit: "4G"
+      memoryRequest: "1028Mi"
       env:
         #### ENVIRONMENT VARIABLES PASSED DIRECTLY TO THE WORKSPACE/CONTAINER
 
