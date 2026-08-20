@@ -24,8 +24,6 @@ components:
       volumeMounts:
         - name: workspace-pvc
           path: /workspace-pvc
-      workingDir: /workspace-pvc
-      # clone Git repositories into this directory instead of /projects
       sourceMapping: /workspace-pvc
 
       # CPU/Memory
