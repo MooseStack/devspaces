@@ -13,10 +13,10 @@ metadata:
 components:
   - name: tools
     container:
-      cpuLimit: 3000m
-      cpuRequest: 500m
+      cpuLimit: 4
+      cpuRequest: 800m
       memoryLimit: 4G
-      memoryRequest: 512Mi
+      memoryRequest: 1028Mi
       env:
         #### ENVIRONMENT VARIABLES PASSED DIRECTLY TO THE WORKSPACE/CONTAINER
 
@@ -78,6 +78,6 @@ events:
 projects:
   - git:
       remotes:
-        origin: https://github.com/moosestack/openshift-devspaces.git
+        origin: https://github.com/moosestack/devspaces.git
     ## name must be lowercase
-    name: openshift-devspaces
+    name: devspaces
