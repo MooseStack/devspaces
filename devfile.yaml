@@ -23,8 +23,8 @@ components:
       # Mount the PVC into the container
       volumeMounts:
         - name: workspace-pvc
-          path: /workspace-pvc
-      sourceMapping: /workspace-pvc
+          path: /projects/workspace-pvc
+      sourceMapping: /projects/workspace-pvc
 
       # CPU/Memory
       cpuLimit: "4"
