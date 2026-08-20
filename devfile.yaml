@@ -11,8 +11,24 @@ metadata:
   language: ObjectScript
   version: 1.0.0
 components:
+
+  # 1. Define the Persistent Volume Claim (optional)
+  - name: workspace-pvc
+    volume:
+      size: 5Gi
+
+  # 2. Define the container component
   - name: tools
     container:
+      # Mount the PVC into the container
+      volumeMounts:
+        - name: workspace-pvc
+          path: /workspace-pvc
+      workingDir: /workspace-pvc
+      # clone Git repositories into this directory instead of /projects
+      sourceMapping: /workspace-pvc
+
+      # CPU/Memory
       cpuLimit: "4"
       cpuRequest: "800m"
       memoryLimit: "4G"
@@ -75,7 +91,7 @@ events:
   postStart:
     - add-mounted-shell-to-bashrc
 
-# auto git clone of a project into /projects folder and auto opens it in selected IDE
+# auto git clone and auto opens it in selected IDE
 # projects:
 #   - git:
 #       remotes:
